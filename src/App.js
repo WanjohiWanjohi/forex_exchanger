@@ -10,11 +10,10 @@ function App() {
 
   useEffect(() => { 
     fetch("http://localhost:4000/currencies/")
-    .then((res)=> res.json()).then((data) =>console.log(data))
-    // .then((data) =>setCurrencies[data])
-
-
+    .then((res)=> res.json())
+    .then((data) =>setCurrencies(data))
   }, []);
+
   return (
     <div className="App">
      <ExchangeForm currencies={currencies}/>
