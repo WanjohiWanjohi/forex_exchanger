@@ -17,6 +17,9 @@ function ExchangeForm() {
       <select>
         <option value="1" disabled>1</option>
       </select>
+      <select>
+        <option value="1" disabled>1</option>
+      </select>
      </form>
     </div>
   );

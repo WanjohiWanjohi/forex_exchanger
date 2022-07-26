@@ -3,11 +3,15 @@ import './App.css';
 import ExchangeForm from './ExchangeForm';
 import HistoricalExchanges from './HistoricalExhanges';
 import React , {useState, useEffect} from 'react';
+import currencies from './../db.json';
 
 function App() {
    // TODO: Load in these currencies from db.json as options to the select from and select to
 
-  useEffect(() => { }, []);
+  useEffect(() => { 
+
+    
+  }, []);
   return (
     <div className="App">
      <ExchangeForm/>
