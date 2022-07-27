@@ -8,20 +8,22 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
 
-const ExchangeForm = ({ currencies }) => {
+const ExchangeForm = ({ currencies , handleExchange}) => {
   const [currencyTo, setCurrencyTo] = useState({})
   const [currencyFrom, setCurrencyFrom] = useState({})
   const [currenciesFrom, setCurrenciesFrom] = useState([])
   const [amount, setAmount] = useState(0)
 
-  // TODO: Use useRef
+
   useEffect((currencies) => {
     setCurrenciesFrom(currencies)
   }, [])
 
-  function handleSubmit(event) {
+  function handleSubmit() {
     console.log(currencyFrom)
     console.log(currencyTo)
+    console.log(amount)
+    handleExchange(currencyTo, currencyFrom, amount)
   }
 
   function handleFromChange(currencyFrom) {
