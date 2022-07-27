@@ -1,10 +1,17 @@
 import './App.css';
-import ExchangeForm from './ExchangeForm';
-import HistoricalExchanges from './HistoricalExhanges';
+import Exchange from './Exchange';
+import HistoricalExchanges from './HistoricalExchanges';
 import NavBar from './NavBar';
 import React , {useState, useEffect} from 'react';
+import Login from './Login'
+import Contact from './Contact'
 import { ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import theme from './theme';
 
 
@@ -21,9 +28,17 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
-      <NavBar/>
-     <ExchangeForm currencies={currencies}/>
-     <HistoricalExchanges/>
+    <Router> 
+      <Routes>
+      <Route exact path="/" element={<NavBar />}/>
+      <Route exact path="/exchange" element={ <Exchange currencies={currencies}/>}/>
+      <Route exact path="/historical_exchanges" element={<HistoricalExchanges/>}/>
+      <Route exact path="/contact" element={<Contact/>}/>
+      <Route exact path="/login" element={<Login/>}/>
+    </Routes>
+    
+     </Router> 
+
     </div>
     </ThemeProvider>
   );

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import NavBar from './NavBar'
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
@@ -34,8 +35,10 @@ const ExchangeForm = ({ currencies }) => {
   // TODO: Handle submit
   // TODO: Handle first select change toupdate list of currencies
   return (
+    <div>
+      <NavBar/>
     <div className="ExchangeForm">
-      <Grid container justifyContent="flex-end" xs={-3}>
+      <Grid container justifyContent="flex-end" item xs={-3}>
         <form onSubmit={handleSubmit}>
           <Grid item >
             <Box m={2} pt={3}>
@@ -75,6 +78,7 @@ const ExchangeForm = ({ currencies }) => {
       </Grid>
 
     </div >
+    </div>
   );
 }
 

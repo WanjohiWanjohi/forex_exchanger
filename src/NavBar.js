@@ -28,7 +28,7 @@ function NavBar() {
                    
                     <ListItem button>
                         <Divider>
-                            <NavLink to="/historical_exchange">  Historical Exchanges</NavLink>
+                            <NavLink to="/historical_exchanges">  Historical Exchanges</NavLink>
                         </Divider>
                     </ListItem>
 
