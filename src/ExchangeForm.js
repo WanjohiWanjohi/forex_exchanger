@@ -9,10 +9,10 @@ import TextField from '@mui/material/TextField';
 
 
 const ExchangeForm = ({ currencies }) => {
-  const [currencyTo, setCurrencyTo] = useState("")
+  const [currencyTo, setCurrencyTo] = useState({})
   const [currencyFrom, setCurrencyFrom] = useState({})
   const [currenciesFrom, setCurrenciesFrom] = useState([])
-
+  const [amount, setAmount] = useState(0)
 
   // TODO: Use useRef
   useEffect((currencies) => {
@@ -20,15 +20,19 @@ const ExchangeForm = ({ currencies }) => {
   }, [])
 
   function handleSubmit(event) {
-    console.log(event.target.value)
+    console.log(currencyFrom)
+    console.log(currencyTo)
   }
 
   function handleFromChange(currencyFrom) {
     setCurrencyFrom(currencyFrom)
   }
 
-  function handleToChange(val) {
-    setCurrencyTo(val)
+  function handleToChange(currencyTo) {
+    setCurrencyTo(currencyTo)
+  }
+  function handleAmountChange(amt){
+    setAmount(amt)
   }
 
   // TODO: Improve custom styling 
@@ -49,6 +53,9 @@ const ExchangeForm = ({ currencies }) => {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                value={amount}
+                fullWidth 
+                onChange={handleAmountChange}
               />
             </Box>
           </Grid>
@@ -70,7 +77,7 @@ const ExchangeForm = ({ currencies }) => {
           <Grid item >
             <label>
               <Box m={2} pt={3}>
-                <Button variant="contained">Exchange</Button>
+                <Button variant="contained" onClick={handleSubmit}>Exchange</Button>
               </Box>
             </label>
           </Grid>
