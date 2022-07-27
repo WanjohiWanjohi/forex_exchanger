@@ -49,8 +49,9 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
               <input
                 id="number"
                 type="text"
-                 pattern="[0-9]*"
+                 pattern='[0-9]*\.?[0-9]*' 
                 label="Amount"
+                required
                 onChange={handleAmountChange}
               />
             </Box>
@@ -58,7 +59,7 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
           <Grid item >
             <Box m={2} pt={3}>
               <label> Select currency to convert from :
-                <Select onChange={handleFromChange} options={currencies} />
+                <Select required onChange={handleFromChange} options={currencies} />
               </label>
             </Box>
           </Grid>
@@ -66,7 +67,7 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
           <Grid item >
             <Box m={2} pt={3}>
               <label> Select currency to convert to :
-                <Select onChange={handleToChange} options={currencies} />
+                <Select required onChange={handleToChange} options={currencies} />
               </label>
             </Box>
           </Grid>
