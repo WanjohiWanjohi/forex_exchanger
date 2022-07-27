@@ -1,29 +1,80 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select'
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 
-const ExchangeForm =({currencies}) =>{
+
+const ExchangeForm = ({ currencies }) => {
   const [currencyTo, setCurrencyTo] = useState("")
-  const [currencyFrom, setCurrencyFrom] = useState("")
-  function handleSubmit(event){
+  const [currencyFrom, setCurrencyFrom] = useState({})
+  const [currenciesFrom, setCurrenciesFrom] = useState([])
 
-  }
-  function handleFromChange(){
 
-  }
-  function handleToChange(){
+  // TODO: Use useRef
+  useEffect((currencies) => {
+    setCurrenciesFrom(currencies)
+  }, [])
 
+  function handleSubmit(event) {
+    console.log(event.target.value)
   }
-  
-  // TODO: Add some custom styling 
+
+  function handleFromChange(currencyFrom) {
+    setCurrencyFrom(currencyFrom)
+  }
+
+  function handleToChange(val) {
+    setCurrencyTo(val)
+  }
+
+  // TODO: Improve custom styling 
   // TODO: Handle submit
+  // TODO: Handle first select change toupdate list of currencies
   return (
     <div className="ExchangeForm">
-     <form onSubmit={handleSubmit}>
-      <Select options={currencies}/>
-      
-     </form>
-    </div>
+      <Grid container justifyContent="flex-end" xs={-3}>
+        <form onSubmit={handleSubmit}>
+          <Grid item >
+            <Box m={2} pt={3}>
+              <TextField
+                id="outlined-number"
+                label="Amount"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Box>
+          </Grid>
+          <Grid item >
+            <Box m={2} pt={3}>
+              <label> Select currency to convert from :
+                <Select onChange={handleFromChange} options={currencies} />
+              </label>
+            </Box>
+          </Grid>
+
+          <Grid item >
+            <Box m={2} pt={3}>
+              <label> Select currency to convert to :
+                <Select onChange={handleToChange} options={currencies} />
+              </label>
+            </Box>
+          </Grid>
+          <Grid item >
+            <label>
+              <Box m={2} pt={3}>
+                <Button variant="contained">Exchange</Button>
+              </Box>
+            </label>
+          </Grid>
+        </form>
+      </Grid>
+
+    </div >
   );
 }
 
