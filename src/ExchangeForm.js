@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import NavBar from './NavBar'
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 
 
 const ExchangeForm = ({ currencies , handleExchange}) => {
@@ -19,11 +18,9 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
     setCurrenciesFrom(currencies)
   }, [])
 
-  function handleSubmit() {
-    console.log(currencyFrom)
-    console.log(currencyTo)
-    console.log(amount)
-    handleExchange(currencyTo, currencyFrom, amount)
+  function handleSubmit(event) {
+    event.preventDefault()
+    handleExchange(currencyTo.value, currencyFrom.value, amount)
   }
 
   function handleFromChange(currencyFrom) {
@@ -33,7 +30,8 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
   function handleToChange(currencyTo) {
     setCurrencyTo(currencyTo)
   }
-  function handleAmountChange(amt){
+  function handleAmountChange(event){
+    var amt = event.target.value;
     setAmount(amt)
   }
 
@@ -48,15 +46,11 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
         <form onSubmit={handleSubmit}>
           <Grid item >
             <Box m={2} pt={3}>
-              <TextField
-                id="outlined-number"
+              <input
+                id="number"
+                type="text"
+                 pattern="[0-9]*"
                 label="Amount"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                value={amount}
-                fullWidth 
                 onChange={handleAmountChange}
               />
             </Box>
