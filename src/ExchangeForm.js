@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import NavBar from './NavBar'
 import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+
 
 
 const ExchangeForm = ({ currencies , handleExchange}) => {
@@ -39,14 +40,11 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
   // TODO: Handle submit
   // TODO: Handle first select change toupdate list of currencies
   return (
-    <div>
-      <NavBar/>
-    <div className="ExchangeForm">
-      <Grid container justifyContent="flex-end" item xs={-3}>
+      <Grid container  spacing={2}  justifyContent='center'>
         <form onSubmit={handleSubmit}>
-          <Grid item >
+          <Grid item  xs={8}>
             <Box m={2} pt={3}>
-              <input
+              <TextField
                 id="number"
                 type="text"
                  pattern='[0-9]*\.?[0-9]*' 
@@ -56,15 +54,13 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
               />
             </Box>
           </Grid>
-          <Grid item >
+          <Grid item xs={12}>
             <Box m={2} pt={3}>
               <label> Select currency to convert from :
                 <Select required onChange={handleFromChange} options={currencies} />
               </label>
             </Box>
-          </Grid>
-
-          <Grid item >
+       
             <Box m={2} pt={3}>
               <label> Select currency to convert to :
                 <Select required onChange={handleToChange} options={currencies} />
@@ -81,8 +77,6 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
         </form>
       </Grid>
 
-    </div >
-    </div>
   );
 }
 

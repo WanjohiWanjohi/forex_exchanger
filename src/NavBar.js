@@ -18,7 +18,7 @@ function NavBar() {
         border: 0,
         color: 'white',
         height: 48,
-        width:100,
+        width:240,
         padding: '0 20px',
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
       };

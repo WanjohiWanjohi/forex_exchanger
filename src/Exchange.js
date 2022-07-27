@@ -2,6 +2,7 @@ import './App.css';
 import ExchangeForm from './ExchangeForm'
 import Box from '@mui/material/Box';
 import React , {useState, useEffect} from 'react';
+import NavBar from './NavBar'
 
 
 function Exchange() {
@@ -25,6 +26,7 @@ function Exchange() {
   return (
     <div className="Exchange">
       <Box m={2} pt={3}>
+      <NavBar/>
         <ExchangeForm currencies={currencies} handleExchange={handleExchange}/>
       </Box>
     </div>

@@ -12,7 +12,7 @@ function Login() {
   return (
     <div>
       <NavBar />
-      <div className="ExchangeForm">
+      <div className="Login">
         <Grid container justifyContent="flex-end" item xs={-3}>
           <form onSubmit={handleSubmit}>
             <Grid item >

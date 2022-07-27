@@ -1,7 +1,8 @@
 import './App.css';
 import Exchange from './Exchange';
 import HistoricalExchanges from './HistoricalExchanges';
-import NavBar from './NavBar';
+
+import Home from './Home';
 import React  from 'react';
 import Login from './Login'
 import Contact from './Contact'
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
     <Router> 
       <Routes>
-      <Route exact path="/" element={<NavBar />}/>
+      <Route exact path="/" element={<Home />}/>
       <Route exact path="/exchange" element={ <Exchange />}/>
       <Route exact path="/historical_exchanges" element={<HistoricalExchanges/>}/>
       <Route exact path="/contact" element={<Contact/>}/>
