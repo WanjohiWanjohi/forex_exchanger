@@ -1,11 +1,9 @@
 import './App.css';
 import Box from '@mui/material/Box';
-import NavBar from './NavBar';
 import Typography from '@mui/material/Typography';
 function Home() {
   return (
     <div className="Home">
-      <NavBar />
       <Box sx={{ width: '100%', maxWidth: 700}} justifyContent="start" alignItems="start"
   >
         <Typography variant="h1" component="div" gutterBottom>

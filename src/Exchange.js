@@ -2,8 +2,6 @@ import './App.css';
 import ExchangeForm from './ExchangeForm'
 import Box from '@mui/material/Box';
 import React , {useState, useEffect} from 'react';
-import NavBar from './NavBar'
-
 
 function Exchange() {
   const [currencies, setCurrencies] = useState([])
@@ -22,7 +20,6 @@ function Exchange() {
   return (
     <div className="Exchange" style={{height: '100vh'}}>
      
-      <NavBar/>
       <Box m={2} pt={3} sx={{
         width: 1000}}>
         <ExchangeForm currencies={currencies} handleExchange={handleExchange}/>

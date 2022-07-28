@@ -1,5 +1,4 @@
 import './App.css';
-import NavBar from './NavBar'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -11,7 +10,6 @@ function Login() {
   }
   return (
     <div>
-      <NavBar />
       <div className="Login">
         <Grid container justifyContent="flex-end" item xs={-3}>
           <form onSubmit={handleSubmit}>
