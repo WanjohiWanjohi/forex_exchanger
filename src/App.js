@@ -30,8 +30,7 @@ function App() {
 
     {
      <Router> 
-          <NavigationBar/>
-
+      <NavigationBar/>
       <Routes>
       <Route exact path="/" element={<Home />}/>
       <Route exact path="/exchange" element={ <Exchange />}/>

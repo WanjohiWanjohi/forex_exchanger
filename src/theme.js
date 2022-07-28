@@ -23,7 +23,7 @@ let theme = createTheme({
     },
     palette: {
         background: {
-            default: '#fecd45',
+            default: '#fffff',
         },
         primary: {
             main: '#2B37D4',

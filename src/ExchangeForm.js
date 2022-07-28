@@ -5,15 +5,17 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import ExchangeResult from './ExchangeResult';
 
-
+// TODO: Handle form validation
 
 const ExchangeForm = ({ currencies , handleExchange}) => {
   const [currencyTo, setCurrencyTo] = useState({})
   const [currencyFrom, setCurrencyFrom] = useState({})
   const [currenciesFrom, setCurrenciesFrom] = useState([])
   const [amount, setAmount] = useState(0)
-
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [exchangeRate,setExchangeRate] = useState(0)
 
   useEffect((currencies) => {
     setCurrenciesFrom(currencies)
@@ -21,7 +23,11 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    handleExchange(currencyTo.value, currencyFrom.value, amount)
+    let rate = handleExchange(currencyTo.value, currencyFrom.value, amount)
+    console.log(exchangeRate)
+    setExchangeRate(rate)
+    console.log(exchangeRate)
+    setIsSubmitted(true)
   }
 
   function handleFromChange(currencyFrom) {
@@ -41,6 +47,9 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
   // TODO: Handle first select change toupdate list of currencies
   return (
       <Grid container  spacing={2}  justifyContent='center'>
+       <Grid item>
+       {isSubmitted ?  <ExchangeResult exchangeRate={exchangeRate} amount={amount} currencyFrom={currencyFrom} currencyTo={currencyTo}/>:null}
+       </Grid>
         <form onSubmit={handleSubmit}>
           <Grid item  xs={8}>
             <Box m={2} pt={3} sx={{

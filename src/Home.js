@@ -6,7 +6,7 @@ function Home() {
     <div className="Home">
       <Box sx={{ width: '100%', maxWidth: 700}} justifyContent="start" alignItems="start"
   >
-        <Typography variant="h1" component="div" gutterBottom>
+        <Typography variant="h1" component="aside" gutterBottom>
           Exchange It !
         </Typography>
         <Typography variant="h3" component="div" gutterBottom>
