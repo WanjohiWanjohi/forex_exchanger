@@ -15,18 +15,16 @@ function Exchange() {
     .then((data) =>setCurrencies(data))
   }, []);
   function handleExchange(currencyTo, currencyFrom , amount){
-    const url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${currencyFrom}&to_currency=${currencyTo}&apikey=demo`;
+    const url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${currencyFrom}&to_currency=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`;
 
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      }
-    }).then((res)=> res.json()).then((result)=> console.log(result))
+    fetch(url).then((res)=> res.json()).then((result)=> console.log(result))
   }
   return (
-    <div className="Exchange">
-      <Box m={2} pt={3}>
+    <div className="Exchange" style={{height: '100vh'}}>
+     
       <NavBar/>
+      <Box m={2} pt={3} sx={{
+        width: 1000}}>
         <ExchangeForm currencies={currencies} handleExchange={handleExchange}/>
       </Box>
     </div>

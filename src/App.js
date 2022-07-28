@@ -22,16 +22,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
-    <Router> 
+
+    {
+     <Router> 
+      
       <Routes>
       <Route exact path="/" element={<Home />}/>
       <Route exact path="/exchange" element={ <Exchange />}/>
       <Route exact path="/historical_exchanges" element={<HistoricalExchanges/>}/>
       <Route exact path="/contact" element={<Contact/>}/>
       <Route exact path="/login" element={<Login/>}/>
+      <Route exact path="/drawer" element={<Login/>}/>
     </Routes>
     
-     </Router> 
+     </Router>  }
 
     </div>
     </ThemeProvider>

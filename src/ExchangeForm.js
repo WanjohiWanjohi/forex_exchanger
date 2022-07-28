@@ -43,7 +43,8 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
       <Grid container  spacing={2}  justifyContent='center'>
         <form onSubmit={handleSubmit}>
           <Grid item  xs={8}>
-            <Box m={2} pt={3}>
+            <Box m={2} pt={3} sx={{
+        width: 900}}>
               <TextField
                 id="number"
                 type="text"
@@ -54,18 +55,18 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
               />
             </Box>
           </Grid>
-          <Grid item xs={12}>
-            <Box m={2} pt={3}>
+          <Grid container spacing={2} justifyContent='center'>
+            <Grid item xs={4} justifyContent='center' >
               <label> Select currency to convert from :
                 <Select required onChange={handleFromChange} options={currencies} />
               </label>
-            </Box>
-       
-            <Box m={2} pt={3}>
+              </Grid>
+              <Grid item xs={4} justifyContent='center' >
+
               <label> Select currency to convert to :
                 <Select required onChange={handleToChange} options={currencies} />
               </label>
-            </Box>
+              </Grid>
           </Grid>
           <Grid item >
             <label>
