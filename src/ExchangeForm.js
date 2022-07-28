@@ -8,7 +8,9 @@ import TextField from '@mui/material/TextField';
 import ExchangeResult from './ExchangeResult';
 
 // TODO: Handle form validation
-
+// TODO: Improve custom styling 
+// TODO: Handle first select change toupdate list of currencies
+// TODO: API  keys outside of source
 const ExchangeForm = ({ currencies , handleExchange}) => {
   const [currencyTo, setCurrencyTo] = useState({})
   const [currencyFrom, setCurrencyFrom] = useState({})
@@ -24,10 +26,8 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
   function handleSubmit(event) {
     event.preventDefault()
     let rate = handleExchange(currencyTo.value, currencyFrom.value, amount)
-    console.log(exchangeRate)
-    setExchangeRate(rate)
-    console.log(exchangeRate)
     setIsSubmitted(true)
+    setExchangeRate(rate)
   }
 
   function handleFromChange(currencyFrom) {
@@ -42,9 +42,6 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
     setAmount(amt)
   }
 
-  // TODO: Improve custom styling 
-  // TODO: Handle submit
-  // TODO: Handle first select change toupdate list of currencies
   return (
       <Grid container  spacing={2}  justifyContent='center'>
        <Grid item>
