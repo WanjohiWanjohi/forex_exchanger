@@ -37,5 +37,5 @@
 - Add contact information
 - Add Homepage information
 - Show main body as graph with histories of all previous values for the exchange pair
-- Host on Heroku/ AWS
+~~- Host on Heroku/ AWS (used Firebase instead)~~
 
