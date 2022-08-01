@@ -24,7 +24,7 @@ function Exchange() {
   let exchangeRate = 0.0;
  
   function handleExchange(currencyTo, currencyFrom, amount) {
-    const url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${currencyFrom}&to_currency=${currencyTo}&apikey=${process.env.API_KEY}`;
+    const url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${currencyFrom}&to_currency=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`;
     fetch(url, { mode: 'cors' })
       .then((res) =>res.json())
       .then((result) => {

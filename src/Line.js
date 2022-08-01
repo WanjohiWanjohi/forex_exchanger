@@ -13,7 +13,7 @@ function MyLineChart({ currencyFrom, currencyTo }) {
   const [changedCurrency, setChangedCurrency] = useState(currencyTo);
   const [chartData, setChartData] = useState([]) 
   useEffect(() => {
-    const url = `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${currencyFrom}&to_symbol=${currencyTo}&apikey=${process.env.API_KEY}`
+    const url = `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${currencyFrom}&to_symbol=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`
     fetch(url)
       .then(response => response.json())
       .then((res) => {
