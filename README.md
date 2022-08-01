@@ -5,7 +5,7 @@
 ## Description
 
 ## Setting up & running the application
-
+You can view the hosted application (here)[https://exchangeit-e8d73.web.app/exchange]
 
 ## API(s) Used:
 1. Alpha Vantage
@@ -18,7 +18,7 @@
     b) The free plan for the API is rate limited to 5 requests per minute and 500 requests per day
  
  2. JSON Server on db.json
-    Alphavantage provides a CSV file for all available currencies on the [platform](https://www.alphavantage.co/physical_currency_list/). This list is stored  in the db.json file as the reference currencies used in the application.This file provides endpoints for fetching this list on demand
+    Alphavantage provides a CSV file for all available currencies on the [platform](https://www.alphavantage.co/physical_currency_list/). Hosted here:[here](https://jsonkeeper.com/b/6NIR) This list is stored  in the db.json file as the reference currencies used in the application.This file provides a GET endpoint for fetching this list on demand.
   ### API Limitations:
     a)
     

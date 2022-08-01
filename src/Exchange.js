@@ -11,7 +11,7 @@ function Exchange() {
   // TODO: Load in these currencies from db.json as options to the select from and select to
 
   useEffect(() => {
-    fetch("http://localhost:4000/currencies/")
+    fetch("https://jsonkeeper.com/b/6NIR")
       .then((res) => res.json())
       .then((data) => setCurrencies(data))
   }, []);
@@ -35,7 +35,7 @@ function Exchange() {
           <ExchangeForm currencies={currencies} handleExchange={handleExchange} />
         </Grid>
       </Grid>
-    </div >
+    </div>
   );
 }
 
