@@ -6,7 +6,7 @@ import MyLineChart from './Line.js';
 
 function Exchange() {
   const [currencyFrom, setCurrencyFrom] = useState("")
-  let [currencyTo, setCurrencyTo] = useState("")
+  const [currencyTo, setCurrencyTo] = useState("")
   const [currencies, setCurrencies] = useState([])
   // TODO: Load in these currencies from db.json as options to the select from and select to
 
@@ -22,28 +22,34 @@ function Exchange() {
   }, []);
 
   let exchangeRate = 0.0;
+ 
   function handleExchange(currencyTo, currencyFrom, amount) {
     const url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${currencyFrom}&to_currency=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`;
     fetch(url, { mode: 'cors' })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Network response was not OK');
-        }
-        res.json()
-      }).then((result) => {
+      .then((res) =>res.json())
+      .then((result) => {
         exchangeRate = result["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
       })
+      .catch((error) => {
+        console.error('Error:', error);})
     return exchangeRate;
   }
+  function setAllCurrencies(currencyFrom, currencyTo){
+      setCurrencyFrom(currencyFrom)
+      setCurrencyTo(currencyTo)
+      console.log(currencyFrom)
+    }
   return (
     <div className="Exchange" style={{ height: '100vh' }}>
       <Grid container spacing={24}>
         <Grid item xs={18} sm={8}>
-          <MyLineChart currencyFrom={currencyFrom} currencyTo={currencyTo} />
+          {currencyFrom !== null  && currencyTo !== null && currencyFrom !== "" && currencyTo !== "" ? 
+          <MyLineChart currencyFrom={currencyFrom.value} currencyTo={currencyTo.value} />
+        : null}
         </Grid>
 
         <Grid item xs={6} sm={4}>
-          <ExchangeForm currencies={currencies} handleExchange={handleExchange} />
+          <ExchangeForm currencies={currencies} handleExchange={handleExchange} setCurrencies={setAllCurrencies} />
         </Grid>
       </Grid>
     </div>

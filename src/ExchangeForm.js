@@ -12,14 +12,14 @@ import ExchangeResult from './ExchangeResult';
 // TODO: Improve custom styling 
 // TODO: Handle first select change toupdate list of currencies
 // TODO: API  keys outside of source
-const ExchangeForm = ({ currencies , handleExchange}) => {
+const ExchangeForm = ({ currencies , handleExchange , setCurrencies}) => {
   const [currencyTo, setCurrencyTo] = useState({})
   const [currencyFrom, setCurrencyFrom] = useState({})
   const [currenciesFrom, setCurrenciesFrom] = useState([])
   const [amount, setAmount] = useState(0)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [exchangeRate,setExchangeRate] = useState(0)
-
+  const [errorText, setErrorText] = useState();
   useEffect((currencies) => {
     setCurrenciesFrom(currencies)
   }, [])
@@ -29,6 +29,7 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
     let rate = handleExchange(currencyTo.value, currencyFrom.value, amount)
     setIsSubmitted(true)
     setExchangeRate(rate)
+    setCurrencies(currencyFrom, currencyTo)
   }
 
 
@@ -41,7 +42,12 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
   }
   function handleAmountChange(event){
     var amt = event.target.value;
-    setAmount(amt)
+    if (amt !== 0){
+      setAmount(amt)
+    }
+    else{
+
+    }
   }
 
   return (

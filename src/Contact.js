@@ -15,7 +15,10 @@ function Contact() {
             <Box sx={{ width: '100%', maxWidth: 700 }} 
             >
               <Paper elevation={18} background-color="white">
-
+              Reach out to us on 
+              <div>
+                admin@exchangeit.com
+                </div>
               </Paper>
             </Box>
 
