@@ -12,12 +12,11 @@ function ExchangeResult({exchangeRate, amount, currencyFrom, currencyTo}) {
       <div className="Home">
         <CssBaseline />
         <Container maxWidth="sm">
-          <Grid direction="column">
+          <Grid >
             <Box sx={{ width: '100%', maxWidth: 700 }} 
             >
-              <Paper elevation={18} background-color="white">
-                  <h1>Your result is :</h1>
-                  <h2> {amount*exchangeRate }</h2>
+              <Paper elevation={18} background-color="ffffff">
+                  <h1>You should receive: {amount*exchangeRate } {currencyTo.value}</h1>
               </Paper>
             </Box>
 

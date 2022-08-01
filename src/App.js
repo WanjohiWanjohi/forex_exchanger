@@ -1,6 +1,5 @@
 import './App.css';
 import Exchange from './Exchange';
-import HistoricalExchanges from './HistoricalExchanges';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import { NavigationBar } from './NavigationBar';
@@ -34,7 +33,6 @@ function App() {
       <Routes>
       <Route exact path="/" element={<Home />}/>
       <Route exact path="/exchange" element={ <Exchange />}/>
-      <Route exact path="/historical_exchanges" element={<HistoricalExchanges/>}/>
       <Route exact path="/contact" element={<Contact/>}/>
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/drawer" element={<Login/>}/>

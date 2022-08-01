@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import ExchangeResult from './ExchangeResult';
 
+
 // TODO: Handle form validation
 // TODO: Improve custom styling 
 // TODO: Handle first select change toupdate list of currencies
@@ -29,6 +30,7 @@ const ExchangeForm = ({ currencies , handleExchange}) => {
     setIsSubmitted(true)
     setExchangeRate(rate)
   }
+
 
   function handleFromChange(currencyFrom) {
     setCurrencyFrom(currencyFrom)
