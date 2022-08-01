@@ -9,26 +9,8 @@ import {
   CartesianGrid
 } from 'recharts';
 
-function MyLineChart({ currencyFrom, currencyTo}) {
-  const [changedCurrency, setChangedCurrency] = useState(currencyTo);
-  const [chartData, setChartData] = useState([]) 
-  useEffect(() => {
-    const url = `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${currencyFrom}&to_symbol=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`
-    fetch(url)
-      .then(response => response.json())
-      .then((res) => {
-        let data = res["Time Series FX (Daily)"]
-        var dataPoints = Object.keys(data).map(function(k) { return data[k] });
-        var keys = Object.keys(data)
-        const newARR = dataPoints.map((element, index)=>({...element, date:keys[index]}))  
-        setChartData(newARR)      
-      })
-  }, [changedCurrency])
-  chartData.sort(function(a, b) {
-    var c = new Date(a.date);
-    var d = new Date(b.date);
-    return c-d;
-});
+function MyLineChart({ chartData, currencyFrom, currencyTo , firstDataKey, secondDataKey}) {
+
  
 return (
   <>
