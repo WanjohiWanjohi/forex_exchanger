@@ -1,24 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
-import ExchangeForm from './ExchangeForm';
-import HistoricalExchanges from './HistoricalExhanges';
-import React , {useState, useEffect} from 'react';
+import Exchange from './Exchange';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import { NavigationBar } from './NavigationBar';
+import Home from './Home';
+import React  from 'react';
+import Login from './Login'
+import Contact from './Contact'
+import CssBaseline from '@mui/material/CssBaseline';
+
+import { ThemeProvider } from '@mui/material/styles';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import theme from './theme';
+
 
 function App() {
-  const [currencies, setCurrencies] = useState([])
-   // TODO: Load in these currencies from db.json as options to the select from and select to
-
-  useEffect(() => { 
-    fetch("http://localhost:4000/currencies/")
-    .then((res)=> res.json())
-    .then((data) =>setCurrencies(data))
-  }, []);
+  
 
   return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
     <div className="App">
-     <ExchangeForm currencies={currencies}/>
-     <HistoricalExchanges/>
+
+    {
+     <Router> 
+      <NavigationBar/>
+      <Routes>
+      <Route exact path="/" element={<Home />}/>
+      <Route exact path="/exchange" element={ <Exchange />}/>
+      <Route exact path="/contact" element={<Contact/>}/>
+      <Route exact path="/login" element={<Login/>}/>
+      <Route exact path="/drawer" element={<Login/>}/>
+    </Routes>
+     </Router>  }
+
     </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,10 +1,41 @@
-# Forex Echanger
-- Display sidebar with drop down and  input for surrencies to exchange and form to submit exchange request
+# ExchangeIt
+
+## Application Structure
+
+## Description
+
+## Setting up & running the application
+You can view the hosted application (here)[https://exchangeit-e8d73.web.app/exchange]
+
+## API(s) Used:
+1. Alpha Vantage
+   This application makes use of the following functions aviled by Alpha Vantage.
+    - CURRENCY_EXCHANGE_RATE
+    - FX_DAILY
+
+  ### API Limitations:
+    a) For currencies with low trading frequencies, the API has no returned data
+    b) The free plan for the API is rate limited to 5 requests per minute and 500 requests per day
+ 
+ 2. JSON Server on db.json
+    Alphavantage provides a CSV file for all available currencies on the [platform](https://www.alphavantage.co/physical_currency_list/). Hosted here:[here](https://mocki.io/v1/2daca649-918f-4bec-b969-2e9d03c4dd48) This list is stored  in the db.json file as the reference currencies used in the application.This file provides a GET endpoint for fetching this list on demand.
+  ### API Limitations:
+    a)
+    
+## Technologies Used
+
+
+## Licenses
+
+
+
+
+## TODO:
+~~- Display sidebar with drop down and  input for currencies to exchange and form to submit exchange request~~
 - Display main content with historical graph of exchange rates for the submitted pair for the past 2 weeks as a graph of exchange rates
 - Allow user to login 
-- Show main body as graph with histories of all previous exchanges
-- Host on Heroku/ AWS
+- Add contact information
+- Add Homepage information
+- Show main body as graph with histories of all previous values for the exchange pair
+~~- Host on Heroku/ AWS (used Firebase instead)~~
 
-API Used:
-Alpha Vantage
-The API provides a CSV file for all available currencies on the platform. This list is stored  in the db.json file as currencies to use in our application. This file using json-server provides endpoints for fetching this list on demand
