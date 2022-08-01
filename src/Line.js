@@ -13,7 +13,7 @@ function MyLineChart({ currencyFrom, currencyTo }) {
   const [changedCurrency, setChangedCurrency] = useState(currencyTo);
   const [chartData, setChartData] = useState([]) 
   useEffect(() => {
-    const url = `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${currencyFrom}&to_symbol=${currencyTo}&apikey=4VSOMEM1WE8AZBAW`
+    const url = `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${currencyFrom}&to_symbol=${currencyTo}&apikey=${process.env.API_KEY}`
     fetch(url)
       .then(response => response.json())
       .then((res) => {
@@ -53,7 +53,7 @@ return (
       </ResponsiveContainer>
       <ResponsiveContainer width="100%" aspect={3}>
           <LineChart data={chartData} margin={{ right: 200 }}>
-              <CartesianGrid />
+              <CartesianGrid  horizontal={false} vertical={false} />
               <XAxis dataKey="date" 
                   interval={'preserveStartEnd'} />
               <YAxis></YAxis>

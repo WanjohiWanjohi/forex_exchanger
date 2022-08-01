@@ -32,22 +32,12 @@ const ExchangeForm = ({ currencies , handleExchange , setCurrencies}) => {
     setCurrencies(currencyFrom, currencyTo)
   }
 
-
   function handleFromChange(currencyFrom) {
     setCurrencyFrom(currencyFrom)
   }
 
   function handleToChange(currencyTo) {
     setCurrencyTo(currencyTo)
-  }
-  function handleAmountChange(event){
-    var amt = event.target.value;
-    if (amt !== 0){
-      setAmount(amt)
-    }
-    else{
-
-    }
   }
 
   return (
@@ -58,14 +48,15 @@ const ExchangeForm = ({ currencies , handleExchange , setCurrencies}) => {
         <form onSubmit={handleSubmit}>
           <Grid item  xs={8}>
             <Box m={2} pt={3} sx={{
-        width: 900}}>
+        width: 400}}>
               <TextField
-                id="number"
-                type="text"
-                 pattern='[0-9]*\.?[0-9]*' 
+                id="amount"
+                type="number"
+                error={amount === ""  && amount.match(/^-?\d+$/) === false}
                 label="Amount"
+                helperText={"Enter a number"}
                 required
-                onChange={handleAmountChange}
+                onChange={(event)=>  setAmount(event.target.value)}
               />
             </Box>
           </Grid>
